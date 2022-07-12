@@ -6,10 +6,10 @@ function computerPlay() {
 // initialise list of 3 choices
     const choices = ['Rock', 'Paper', 'Scissors']
 // from the list choose 1 choice
-    let randomNumber = Math.floor(Math.random() * 3)
-    let choice = choices[randomNumber]
+    let randomNumber = Math.floor(Math.random() * 3);
+    let choice = choices[randomNumber];
 // return the choice
-    return choice
+    return choice;
 }
 
 // initialise game function
@@ -19,17 +19,19 @@ playerSelection = playerSelection.toLowerCase()
 computerSelection = computerSelection.toLowerCase()
 // compare the choices
     if (playerSelection === computerSelection) {
-        return `Tie!`
+        return `Tie!`;
     } else if ((playerSelection === 'rock' && computerSelection === 'scissors')||
               (playerSelection === 'paper' && computerSelection === 'rock')||
               (playerSelection === 'scissors' && computerSelection === 'paper')) {
         playerScore += 1;
-        return `You win! ${playerSelection} beats ${computerSelection}`
+        return `You win! ${playerSelection} beats ${computerSelection}`;
         } else if ((playerSelection === 'rock' && computerSelection === 'paper')||
               (playerSelection === 'paper' && computerSelection === 'scissors')||
               (playerSelection === 'scissors' && computerSelection === 'rock')) {
         computerScore += 1;
-        return `You Lose! ${computerSelection} beats ${playerSelection}`
+        return `You Lose! ${computerSelection} beats ${playerSelection}`;
+    } else {
+        return ('Invalid choice! Please try again!');
     }
 }
 
@@ -41,18 +43,22 @@ function game() {
         // get new choice from computer
         let computerSelection = computerPlay();
         // get new choice from player
-        let playerSelection = prompt("Enter your choice!")
+        let playerSelection = prompt("Enter your choice!");
         console.log(`Round ${i}`);
-        console.log(playRound(playerSelection, computerSelection));
+        let outcome = (playRound(playerSelection, computerSelection));
+        if (outcome == ('Invalid choice! Please try again!')) {
+            i--;
+        }
+        console.log(outcome)
     }
     //print scores
     console.log(`Your score: ${playerScore} Computer Score: ${computerScore}`)
     //compare player score after game
     if (playerScore === computerScore) {
-        return 'You Tie!'
+        return 'You Tie!';
     } else if (playerScore > computerScore) {
-        return 'You Win!'
+        return 'You Win!';
     } else {
-        return 'You Lose!'
+        return 'You Lose!';
     }
 }
