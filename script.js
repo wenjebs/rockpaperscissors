@@ -17,21 +17,14 @@ computerSelection = computerSelection.toLowerCase()
 // compare the choices
     if (playerSelection === computerSelection) {
         return `Tie!`
-    } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
-        return 'You win! Rock beats Scissors'
-    } else if (playerSelection === 'rock' && computerSelection === 'paper') {
-        return `You Lose! Paper beats Rock`
-    } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
-        return 'You Lose! Scissors beats Paper'
-    } else if (playerSelection === 'paper' && computerSelection === 'rock') {
-        return 'You Win! Paper beats rock'
-    } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
-        return 'You Lose! Rock beats Scissors'
-    } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
-        return 'You win! Scissors beats Paper'
-    }
+    } else if ((playerSelection === 'rock' && computerSelection === 'scissors')||
+              (playerSelection === 'paper' && computerSelection === 'rock')||
+              (playerSelection === 'scissors' && computerSelection === 'paper')) {
+        return 'You win!'
+        playerCounter += 1
+    } else if ((playerSelection === 'rock' && computerSelection === 'paper')||
+              (playerSelection === 'paper' && computerSelection === 'scissors')||
+              (playerSelection === 'scissors' && computerSelection === 'rock')) {
+        return `You Lose!`
+        computerCounter += 1
 }
-const playerSelection = "rock";
-const computerSelection = computerPlay();
-console.log(computerSelection)
-console.log(playRound(playerSelection, computerSelection));
