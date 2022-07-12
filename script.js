@@ -1,6 +1,6 @@
 // initialise scores
-let playerScore = 0;
-let computerScore = 0;
+let playerScore;
+let computerScore;
 // initialise the function
 function computerPlay() {
 // initialise list of 3 choices
@@ -41,7 +41,7 @@ function game() {
         // get new choice from computer
         let computerSelection = computerPlay();
         // get new choice from player
-        // let playerSelection = prompt("Enter your choice!")
+        let playerSelection = prompt("Enter your choice!")
         console.log(`Round ${i}`);
         console.log(playRound(playerSelection, computerSelection));
     }
@@ -56,5 +56,3 @@ function game() {
         return 'You Lose!'
     }
 }
-
-const playerSelection = "rock";
