@@ -1,3 +1,6 @@
+// initialise scores
+let playerScore = 0;
+let computerScore = 0;
 // initialise the function
 function computerPlay() {
 // initialise list of 3 choices
@@ -20,10 +23,15 @@ computerSelection = computerSelection.toLowerCase()
     } else if ((playerSelection === 'rock' && computerSelection === 'scissors')||
               (playerSelection === 'paper' && computerSelection === 'rock')||
               (playerSelection === 'scissors' && computerSelection === 'paper')) {
+        playerScore += 1;
         return 'You win!'
-    } else if ((playerSelection === 'rock' && computerSelection === 'paper')||
+        } else if ((playerSelection === 'rock' && computerSelection === 'paper')||
               (playerSelection === 'paper' && computerSelection === 'scissors')||
               (playerSelection === 'scissors' && computerSelection === 'rock')) {
+        computerScore += 1;
         return `You Lose!`
     }
 }
+const playerSelection = "rock";
+const computerSelection = computerPlay();
+console.log(playRound(playerSelection, computerSelection));
