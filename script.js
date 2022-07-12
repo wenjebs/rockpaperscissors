@@ -21,10 +21,9 @@ computerSelection = computerSelection.toLowerCase()
               (playerSelection === 'paper' && computerSelection === 'rock')||
               (playerSelection === 'scissors' && computerSelection === 'paper')) {
         return 'You win!'
-        playerCounter += 1
     } else if ((playerSelection === 'rock' && computerSelection === 'paper')||
               (playerSelection === 'paper' && computerSelection === 'scissors')||
               (playerSelection === 'scissors' && computerSelection === 'rock')) {
         return `You Lose!`
-        computerCounter += 1
+    }
 }
