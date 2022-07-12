@@ -24,14 +24,37 @@ computerSelection = computerSelection.toLowerCase()
               (playerSelection === 'paper' && computerSelection === 'rock')||
               (playerSelection === 'scissors' && computerSelection === 'paper')) {
         playerScore += 1;
-        return 'You win!'
+        return `You win! ${playerSelection} beats ${computerSelection}`
         } else if ((playerSelection === 'rock' && computerSelection === 'paper')||
               (playerSelection === 'paper' && computerSelection === 'scissors')||
               (playerSelection === 'scissors' && computerSelection === 'rock')) {
         computerScore += 1;
-        return `You Lose!`
+        return `You Lose! ${computerSelection} beats ${playerSelection}`
     }
 }
+
+// create loop for 5 round of game function
+function game() {
+    computerScore = 0;
+    playerScore = 0;
+    for (i = 1; i <= 5; i++) {
+        // get new choice from computer
+        let computerSelection = computerPlay();
+        // get new choice from player
+        // let playerSelection = prompt("Enter your choice!")
+        console.log(`Round ${i}`);
+        console.log(playRound(playerSelection, computerSelection));
+    }
+    //print scores
+    console.log(`Your score: ${playerScore} Computer Score: ${computerScore}`)
+    //compare player score after game
+    if (playerScore === computerScore) {
+        return 'You Tie!'
+    } else if (playerScore > computerScore) {
+        return 'You Win!'
+    } else {
+        return 'You Lose!'
+    }
+}
+
 const playerSelection = "rock";
-const computerSelection = computerPlay();
-console.log(playRound(playerSelection, computerSelection));
